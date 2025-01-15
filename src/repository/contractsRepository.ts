@@ -1,6 +1,15 @@
 import Contrato from "../models/Contract";
-import ContratoType from "../types";
 
+interface ContratoAttributes {
+  id?: number; // Opcional se for um campo gerado automaticamente
+  numero_contrato: number;
+  status: string;
+  data_inicial: Date;
+  data_final: Date;
+  empresa_id: number;
+  operador_id: number;
+  plano_id: number;
+}
 class ContractsRepository {
   // Buscar todos os contratos
   async getAllContracts() {
@@ -17,14 +26,14 @@ class ContractsRepository {
   }
 
   // Criar um contrato
-  async createContract(data: ContratoType) {
+  async createContract(data: Partial<ContratoAttributes>) {
     console.log("Dentro do repository create");
     // Fazer uma validação se o número do contrato é o mesmo ou não - para evitar cadastro duplicado
     return await Contrato.create(data); // Cria o contrato com os dados recebidos
   }
 
   // Editar um contrato
-  async updateContract(id: string, data: ContratoType) {
+  async updateContract(id: string, data: object) {
     console.log("REPOSITORY");
     
     const contract = await Contrato.findByPk(id);

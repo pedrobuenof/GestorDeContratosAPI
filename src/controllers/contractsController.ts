@@ -1,13 +1,11 @@
 import { Request, Response } from "express";
-import ContratoType from "../types";
-
-const contractsRepository = require('../repository/contractsRepository');
+import contractsRepository from "../repository/contractsRepository";
 
 
 class ContractsController {
   async getAllContracts(req: Request, res:Response) {
     try {
-      const contracts: [ContratoType] = await contractsRepository.getAllContracts();
+      const contracts = await contractsRepository.getAllContracts();
       res.json(contracts);
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -23,7 +21,7 @@ class ContractsController {
       const id: string = req.params.id;
       console.log("inicio");
       
-      const contracts: ContratoType = await contractsRepository.getContractsById(id);
+      const contracts = await contractsRepository.getContractsById(id);
       res.json(contracts);
     } catch (error: unknown) {
       if (error instanceof Error) {
@@ -39,7 +37,9 @@ class ContractsController {
       console.log("Entrou");
       const data: Object = req.body;
       console.log("Pegamos o body", data);
-      const newContract: ContratoType = await contractsRepository.createContract(data);
+      console.log(typeof data);
+      
+      const newContract = await contractsRepository.createContract(data);
       console.log("fomos la no banco");
       
       res.status(201).json(newContract);
@@ -60,7 +60,7 @@ class ContractsController {
       console.log(id);
       console.log(data);
       
-      const updatedContract: ContratoType = await contractsRepository.updateContract(id, data);
+      const updatedContract = await contractsRepository.updateContract(id, data);
       res.json(updatedContract);
     } catch (error: unknown) {
       if (error instanceof Error) {
