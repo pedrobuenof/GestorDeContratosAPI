@@ -1,8 +1,9 @@
-const Plano = require('./Plan'); // Importa o modelo de Planos
-const Contrato = require('./Contract'); // Importa o modelo de Contratos
-const Beneficiario= require('./Beneficiary'); // Importa o modelo de Beneficiários
-const Empresa = require('./Enterprise');
-const Operadora = require('./Operator');
+import Plano from './Plan'; // Importa o modelo de Planos
+import Contrato from './Contract'; // Importa o modelo de Contratos
+import Beneficiario from './Beneficiary'; // Importa o modelo de Beneficiários
+import Empresa from './Enterprise';
+import Operadora from './Operator';
+
 
 // Define os Relacionamentos 1 para muitos no Sequelize
 Contrato.belongsTo(Empresa, { foreignKey: 'empresa_id' });
@@ -20,7 +21,7 @@ Beneficiario.belongsToMany(Contrato, { through: 'ContractBeneficiary', foreignKe
 
 
 // Exporta os modelos
-module.exports = {
+export default {
   Plano,
   Contrato,
   Beneficiario,

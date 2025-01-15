@@ -1,7 +1,5 @@
-const connection_db = require('../../config/database');
-const { DataTypes } = require('sequelize');
-
-connection_db.define()
+import connection_db from '../../config/database'
+import { DataTypes } from 'sequelize';
 
 const Beneficiario = connection_db.define('Benefiario', {
   id: {
@@ -29,4 +27,4 @@ const Beneficiario = connection_db.define('Benefiario', {
   timestamps: true
 })
 
-module.exports = Beneficiario;
+export default Beneficiario;

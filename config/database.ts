@@ -1,4 +1,5 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from "sequelize";
+
 require('dotenv').config();
 
 const connection_db = new Sequelize(
@@ -12,4 +13,4 @@ const connection_db = new Sequelize(
   }
 );
 
-module.exports = connection_db;
+export default connection_db;

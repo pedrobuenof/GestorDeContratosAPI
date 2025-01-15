@@ -1,5 +1,5 @@
-const connection_db = require('../../config/database');
-const { DataTypes } = require('sequelize');
+import connection_db from '../../config/database'
+import { DataTypes } from 'sequelize';
 
 const Contrato = connection_db.define('Contrato', {
   id: {
@@ -46,4 +46,4 @@ const Contrato = connection_db.define('Contrato', {
   timestamps: true
 })
 
-module.exports = Contrato;
+export default Contrato;

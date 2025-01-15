@@ -1,7 +1,5 @@
-const connection_db = require('../../config/database');
-const { DataTypes } = require('sequelize');
-
-connection_db.define()
+import connection_db from '../../config/database'
+import { DataTypes } from 'sequelize';
 
 const Plano = connection_db.define('Plano', {
   id: {
@@ -29,4 +27,4 @@ const Plano = connection_db.define('Plano', {
   timestamps: true
 })
 
-module.exports = Plano;
+export default Plano;

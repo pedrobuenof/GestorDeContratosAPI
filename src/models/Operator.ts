@@ -1,5 +1,5 @@
-const connection_db = require('../../config/database')
-const { DataTypes } = require('sequelize');
+import connection_db from '../../config/database'
+import { DataTypes } from 'sequelize';
 
 const Operadora = connection_db.define('Operadora', {
   id: {
@@ -16,4 +16,4 @@ const Operadora = connection_db.define('Operadora', {
   timestamps: true,
 });
 
-module.exports = Operadora;
+export default Operadora;
