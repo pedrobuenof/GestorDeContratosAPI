@@ -1,9 +1,9 @@
-const express = require('express');
-const api = require('./src/routes/api');
+import express from 'express';
+import api from './src/routes/api';
+import connection_db from './config/database';
 require('dotenv').config();
 
 // BANCO DE DADOS
-const connection_db = require('./config/database');
 connection_db.authenticate().then(() => console.log("Conexão com o banco de dados bem-sucedida!")).catch( err => console.error('Erro ao conectar ao banco de dados: ', err));
 connection_db.sync({ force: false }) // Não deleta as tabelas existentes
   .then(() => {
