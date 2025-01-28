@@ -3,7 +3,6 @@ import ContractsController from '../controllers/contractsController';
 
 const router = express.Router();
 //***************** CONTRATOS ******************/
-// ter cuidado com o bind - talvez tenha que usar (req, res) => ContractsController.getAllContracts(req, res)
 router.get('/buscar', ContractsController.getAllContracts)
 
 router.get('/buscar/:id', ContractsController.getContractById)
